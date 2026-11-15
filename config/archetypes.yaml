@@ -1,0 +1,47 @@
+# Digital Career Twin - Career DNA Archetype Centroids
+# Version: 1.0.0
+
+archetypes:
+  systems_builder:
+    title: "Systems Builder"
+    description: "Excels at core architecture, backend systems, scalability, and performance."
+    centroid:
+      technical_depth: 85
+      systems_thinking: 90
+      execution_speed: 70
+      collaboration: 65
+      creative_exploration: 50
+      product_sense: 55
+
+  applied_researcher:
+    title: "Applied Researcher"
+    description: "Thrives at the intersection of machine learning, algorithms, and experimental rigor."
+    centroid:
+      technical_depth: 92
+      systems_thinking: 75
+      execution_speed: 60
+      collaboration: 60
+      creative_exploration: 88
+      product_sense: 50
+
+  product_craftsman:
+    title: "Product Craftsman"
+    description: "Deep focus on user experience, frontend craft, polish, and product ergonomics."
+    centroid:
+      technical_depth: 70
+      systems_thinking: 65
+      execution_speed: 80
+      collaboration: 75
+      creative_exploration: 85
+      product_sense: 90
+
+  engineering_orchestrator:
+    title: "Engineering Orchestrator"
+    description: "Specializes in cross-functional coordination, technical leadership, and engineering velocity."
+    centroid:
+      technical_depth: 72
+      systems_thinking: 80
+      execution_speed: 82
+      collaboration: 92
+      creative_exploration: 65
+      product_sense: 78

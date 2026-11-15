@@ -1,0 +1,47 @@
+[
+  {
+    "id": "persona-student-01",
+    "name": "Alex - Final Year CS Student",
+    "persona": "student",
+    "education": [
+      {
+        "institution": "State University",
+        "level": "bachelors",
+        "degree": "B.Tech Computer Science",
+        "status": "in_progress",
+        "grade_normalized": 82.5
+      }
+    ],
+    "skills": {
+      "python": { "proficiency": 65.0, "confidence": 0.8 },
+      "fastapi": { "proficiency": 45.0, "confidence": 0.6 },
+      "postgresql": { "proficiency": 40.0, "confidence": 0.5 }
+    },
+    "goals": {
+      "target_role_slug": "backend-engineer",
+      "target_region": "global"
+    }
+  },
+  {
+    "id": "persona-switcher-01",
+    "name": "Maya - Career Switcher (Mechanical to Software)",
+    "persona": "switcher",
+    "education": [
+      {
+        "institution": "Polytechnic Institute",
+        "level": "bachelors",
+        "degree": "B.E. Mechanical Engineering",
+        "status": "completed",
+        "grade_normalized": 78.0
+      }
+    ],
+    "skills": {
+      "python": { "proficiency": 50.0, "confidence": 0.7 },
+      "react": { "proficiency": 35.0, "confidence": 0.4 }
+    },
+    "goals": {
+      "target_role_slug": "backend-engineer",
+      "target_region": "global"
+    }
+  }
+]

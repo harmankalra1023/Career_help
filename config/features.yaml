@@ -1,0 +1,13 @@
+# Digital Career Twin - Feature Flags
+# Version: 1.0.0
+
+features:
+  github_sync: true
+  resume_parsing: true
+  psychometric_assessments: true
+  career_simulator: true
+  ai_mentor: true
+  live_market_connectors: false # Seed data is primary for MVP
+  telemetry: false
+  dark_mode: true
+  pdf_export: false

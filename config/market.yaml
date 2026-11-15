@@ -1,0 +1,25 @@
+# Digital Career Twin - Market Configuration
+# Version: 1.0.0
+
+market_intelligence:
+  stale_threshold_days: 45
+  growth_smoothing_ewma_span: 6
+  max_annual_growth_adjustment_pct: 3.0
+  min_samples_threshold: 30
+
+regions:
+  - id: global
+    name: "Global Market"
+    currency: USD
+  - id: north_america
+    name: "North America"
+    currency: USD
+  - id: europe
+    name: "Europe"
+    currency: EUR
+  - id: india
+    name: "India"
+    currency: INR
+  - id: southeast_asia
+    name: "Southeast Asia"
+    currency: USD

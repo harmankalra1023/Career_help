@@ -1,0 +1,62 @@
+# Digital Career Twin - Scoring Configuration
+# Version: 1.0.0
+
+engine_version: "1.0.0"
+confidence_norm: 1.5
+
+# Skill decay half-lives in months by category (PRD §7.5)
+half_life_months:
+  ai_ml: 12
+  cloud_devops: 18
+  frontend: 18
+  backend: 24
+  data_engineering: 24
+  systems_security: 36
+  core_cs: 48
+  soft_skills: 60
+  domain: 36
+
+# Evidence type weights (PRD §7.3)
+evidence_weights:
+  assessment: 1.0
+  experience: 0.9
+  project: 0.75
+  github: 0.70
+  certification: 0.65
+  education: 0.50
+  resume_parse: 0.40
+  self_report: 0.25
+
+# Score Bands (PRD §9.2)
+bands:
+  emerging:
+    min: 0.0
+    max: 39.9
+  developing:
+    min: 40.0
+    max: 59.9
+  solid:
+    min: 60.0
+    max: 74.9
+  strong:
+    min: 75.0
+    max: 89.9
+  exceptional:
+    min: 90.0
+    max: 100.0
+
+# Career Match Component Weights (PRD §9.5)
+career_match_weights:
+  skill_fit: 0.45
+  interest_fit: 0.20
+  pathway_fit: 0.15
+  experience_fit: 0.10
+  goal_market_fit: 0.10
+
+# Job Readiness Score (JRS) Weights (PRD §9.7)
+jrs_weights:
+  required_skills_coverage: 0.45
+  depth_adequacy: 0.25
+  evidence_credibility: 0.15
+  recency_index: 0.10
+  adjacent_transfer: 0.05

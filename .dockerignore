@@ -1,0 +1,17 @@
+.git
+.gitignore
+.venv/
+venv/
+node_modules/
+.next/
+out/
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+htmlcov/
+.env.local
+.env.*.local
+storage/
+uploads/
+docs/

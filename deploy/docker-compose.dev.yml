@@ -1,0 +1,25 @@
+services:
+  api:
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - ../apps/api:/workspace/apps/api
+      - ../config:/workspace/config
+      - ../packages:/workspace/packages
+
+  worker:
+    volumes:
+      - ../apps/api:/workspace/apps/api
+      - ../config:/workspace/config
+      - ../packages:/workspace/packages
+
+  web:
+    volumes:
+      - ../apps/web:/workspace/apps/web
+      - /workspace/apps/web/node_modules
+      - /workspace/apps/web/.next
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    ports:
+      - "1025:1025" # SMTP
+      - "8025:8025" # Web UI
