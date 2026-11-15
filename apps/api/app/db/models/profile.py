@@ -1,7 +1,6 @@
 import uuid
 from typing import Optional, List
-from sqlalchemy import String, Integer, Float, ForeignKey, JSON
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy import String, Integer, Float, ForeignKey, JSON, Uuid
 from sqlalchemy.orm import Mapped, mapped_column
 from app.db.base import Base, TimestampMixin
 
@@ -9,7 +8,7 @@ from app.db.base import Base, TimestampMixin
 class Education(Base, TimestampMixin):
     __tablename__ = "education"
 
-    user_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    user_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
     institution: Mapped[str] = mapped_column(String(255), nullable=False)
     level: Mapped[str] = mapped_column(String(50), nullable=False) # bachelors, masters, etc.
     degree: Mapped[str] = mapped_column(String(255), nullable=False)
@@ -26,7 +25,7 @@ class Education(Base, TimestampMixin):
 class Experience(Base, TimestampMixin):
     __tablename__ = "experiences"
 
-    user_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    user_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
     company: Mapped[str] = mapped_column(String(255), nullable=False)
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     location: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
@@ -40,10 +39,22 @@ class Experience(Base, TimestampMixin):
 class Project(Base, TimestampMixin):
     __tablename__ = "projects"
 
-    user_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    user_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     description: Mapped[str] = mapped_column(String(4000), nullable=False)
     url: Mapped[Optional[str]] = mapped_column(String(1024), nullable=True)
     repo_url: Mapped[Optional[str]] = mapped_column(String(1024), nullable=True)
     skills_used: Mapped[List[str]] = mapped_column(JSON, default=list, nullable=False)
+    verified: Mapped[bool] = mapped_column(default=False, nullable=False)
+
+
+class Certification(Base, TimestampMixin):
+    __tablename__ = "certifications"
+
+    user_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    name: Mapped[str] = mapped_column(String(255), nullable=False)
+    issuer: Mapped[str] = mapped_column(String(255), nullable=False)
+    issued_on: Mapped[str] = mapped_column(String(20), nullable=False)
+    expires_on: Mapped[Optional[str]] = mapped_column(String(20), nullable=True)
+    credential_url: Mapped[Optional[str]] = mapped_column(String(1024), nullable=True)
     verified: Mapped[bool] = mapped_column(default=False, nullable=False)

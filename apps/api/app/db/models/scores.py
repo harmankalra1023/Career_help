@@ -1,7 +1,6 @@
 import uuid
 from typing import Optional, Dict, Any, List
-from sqlalchemy import String, Float, ForeignKey, JSON
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy import String, Float, ForeignKey, JSON, Uuid
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.db.base import Base, TimestampMixin
 
@@ -9,7 +8,7 @@ from app.db.base import Base, TimestampMixin
 class ScoreRun(Base, TimestampMixin):
     __tablename__ = "score_runs"
 
-    user_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    user_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
     engine_version: Mapped[str] = mapped_column(String(50), nullable=False)
     taxonomy_version: Mapped[str] = mapped_column(String(50), nullable=False)
     input_hash: Mapped[str] = mapped_column(String(64), nullable=False, index=True)
@@ -22,7 +21,7 @@ class ScoreRun(Base, TimestampMixin):
 class Score(Base, TimestampMixin):
     __tablename__ = "scores"
 
-    score_run_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("score_runs.id", ondelete="CASCADE"), nullable=False, index=True)
+    score_run_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("score_runs.id", ondelete="CASCADE"), nullable=False, index=True)
     kind: Mapped[str] = mapped_column(String(50), nullable=False, index=True) # pps, tss, ntss, jrs, career_match
     target_role_slug: Mapped[Optional[str]] = mapped_column(String(100), nullable=True)
     value: Mapped[float] = mapped_column(Float, nullable=False) # 0 to 100
@@ -37,8 +36,17 @@ class Score(Base, TimestampMixin):
 class DnaProfile(Base, TimestampMixin):
     __tablename__ = "dna_profiles"
 
-    user_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
-    score_run_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("score_runs.id", ondelete="CASCADE"), nullable=False)
+    user_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    score_run_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("score_runs.id", ondelete="CASCADE"), nullable=False)
     dimensions: Mapped[Dict[str, float]] = mapped_column(JSON, default=dict, nullable=False)
     archetype_weights: Mapped[List[Dict[str, Any]]] = mapped_column(JSON, default=list, nullable=False)
     narrative: Mapped[Optional[str]] = mapped_column(String(4000), nullable=True)
+
+
+class AssessmentResponse(Base, TimestampMixin):
+    __tablename__ = "assessment_responses"
+
+    user_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    instrument_id: Mapped[str] = mapped_column(String(50), nullable=False) # big5, riasec, work_style
+    answers_json: Mapped[Dict[str, Any]] = mapped_column(JSON, default=dict, nullable=False)
+    trait_scores: Mapped[Dict[str, float]] = mapped_column(JSON, default=dict, nullable=False)

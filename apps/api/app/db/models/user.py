@@ -1,7 +1,6 @@
 import uuid
 from typing import Optional, Dict, Any, List
-from sqlalchemy import String, Boolean, JSON, ForeignKey
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy import String, Boolean, JSON, ForeignKey, Uuid
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.db.base import Base, TimestampMixin
 
@@ -27,7 +26,7 @@ class User(Base, TimestampMixin):
 class OAuthAccount(Base, TimestampMixin):
     __tablename__ = "oauth_accounts"
 
-    user_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    user_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
     provider: Mapped[str] = mapped_column(String(50), nullable=False)
     provider_user_id: Mapped[str] = mapped_column(String(255), nullable=False)
     token_encrypted: Mapped[str] = mapped_column(String(1024), nullable=False)

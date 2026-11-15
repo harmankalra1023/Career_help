@@ -1,7 +1,6 @@
 import uuid
 from typing import Optional, Dict, Any, List
-from sqlalchemy import String, Integer, Float, Boolean, ForeignKey, JSON
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy import String, Integer, Float, Boolean, ForeignKey, JSON, Uuid
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.db.base import Base, TimestampMixin
 
@@ -9,7 +8,7 @@ from app.db.base import Base, TimestampMixin
 class Roadmap(Base, TimestampMixin):
     __tablename__ = "roadmaps"
 
-    user_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    user_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
     target_role_slug: Mapped[str] = mapped_column(String(100), nullable=False)
     horizon_months: Mapped[int] = mapped_column(Integer, default=6, nullable=False)
     weekly_hours: Mapped[float] = mapped_column(Float, default=8.0, nullable=False)
@@ -22,7 +21,7 @@ class Roadmap(Base, TimestampMixin):
 class Milestone(Base, TimestampMixin):
     __tablename__ = "milestones"
 
-    roadmap_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("roadmaps.id", ondelete="CASCADE"), nullable=False, index=True)
+    roadmap_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("roadmaps.id", ondelete="CASCADE"), nullable=False, index=True)
     sequence_order: Mapped[int] = mapped_column(Integer, nullable=False)
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     phase: Mapped[str] = mapped_column(String(50), nullable=False) # Foundation, Core, Applied, etc.

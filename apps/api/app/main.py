@@ -13,7 +13,13 @@ setup_logging(settings.LOG_LEVEL)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Startup: load configs, warm caches if needed
+    # Startup: initialize database tables and seed baseline data
+    from app.db.init_db import init_database
+    try:
+        await init_database()
+    except Exception as e:
+        import logging
+        logging.getLogger(__name__).error(f"Error initializing database: {e}")
     yield
     # Shutdown: clean up resources
 

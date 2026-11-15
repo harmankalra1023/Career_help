@@ -1,7 +1,6 @@
 import uuid
 from datetime import datetime, timezone
-from sqlalchemy import DateTime
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy import DateTime, Uuid
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from app.db.utils import uuid7
 
@@ -12,7 +11,7 @@ class Base(DeclarativeBase):
 
 class TimestampMixin:
     id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True),
+        Uuid(as_uuid=True),
         primary_key=True,
         default=uuid7,
         index=True

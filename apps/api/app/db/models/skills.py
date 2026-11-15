@@ -1,7 +1,6 @@
 import uuid
 from typing import Optional, List, Dict, Any
-from sqlalchemy import String, Float, ForeignKey, JSON, UniqueConstraint
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy import String, Float, ForeignKey, JSON, UniqueConstraint, Uuid
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.db.base import Base, TimestampMixin
 
@@ -20,8 +19,8 @@ class UserSkill(Base, TimestampMixin):
     __tablename__ = "user_skills"
     __table_args__ = (UniqueConstraint("user_id", "skill_id", name="uq_user_skill"),)
 
-    user_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
-    skill_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("skills.id", ondelete="CASCADE"), nullable=False, index=True)
+    user_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    skill_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("skills.id", ondelete="CASCADE"), nullable=False, index=True)
     proficiency: Mapped[float] = mapped_column(Float, default=0.0, nullable=False) # 0 to 100
     confidence: Mapped[float] = mapped_column(Float, default=0.0, nullable=False)  # 0 to 1
     self_rating: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
@@ -32,7 +31,7 @@ class UserSkill(Base, TimestampMixin):
 class SkillEvidence(Base, TimestampMixin):
     __tablename__ = "skill_evidence"
 
-    user_skill_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("user_skills.id", ondelete="CASCADE"), nullable=False, index=True)
+    user_skill_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), ForeignKey("user_skills.id", ondelete="CASCADE"), nullable=False, index=True)
     evidence_type: Mapped[str] = mapped_column(String(50), nullable=False) # github, experience, assessment, etc.
     signal_value: Mapped[float] = mapped_column(Float, nullable=False) # 0 to 1
     weight: Mapped[float] = mapped_column(Float, nullable=False)
