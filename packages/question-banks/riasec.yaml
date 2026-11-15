@@ -1,0 +1,39 @@
+version: "1.0.0"
+license: "O*NET Open License"
+source: "O*NET Interest Profiler Short Form"
+locale: "en"
+scale:
+  min: 1
+  max: 5
+  labels:
+    1: "Strongly Dislike"
+    2: "Dislike"
+    3: "Unsure"
+    4: "Like"
+    5: "Strongly Like"
+
+items:
+  - id: "ria-01"
+    text: "Build kitchen cabinets or assemble physical machinery."
+    dimension: "realistic"
+    reverse_scored: false
+  - id: "ria-02"
+    text: "Conduct experiments to understand natural phenomena."
+    dimension: "investigative"
+    reverse_scored: false
+  - id: "ria-03"
+    text: "Write scripts, paint, or compose creative designs."
+    dimension: "artistic"
+    reverse_scored: false
+  - id: "ria-04"
+    text: "Teach children or mentor others in professional growth."
+    dimension: "social"
+    reverse_scored: false
+  - id: "ria-05"
+    text: "Manage a department or negotiate business deals."
+    dimension: "enterprising"
+    reverse_scored: false
+  - id: "ria-06"
+    text: "Keep detailed financial records or inventory spreadsheets."
+    dimension: "conventional"
+    reverse_scored: false

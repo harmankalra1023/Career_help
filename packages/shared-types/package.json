@@ -1,0 +1,13 @@
+{
+  "name": "@dct/shared-types",
+  "version": "1.0.0",
+  "description": "Shared TypeScript definitions and OpenAPI contracts for Digital Career Twin",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}

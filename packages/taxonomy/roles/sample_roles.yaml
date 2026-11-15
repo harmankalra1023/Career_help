@@ -1,0 +1,45 @@
+version: "1.0.0"
+roles:
+  - id: "018f0a02-0001-7000-8000-000000000001"
+    slug: "backend-engineer"
+    title: "Backend Engineer"
+    description: "Designs, constructs, and maintains the server-side logic, database architecture, and API layer."
+    required_skills:
+      - skill_slug: "python"
+        minimum_level: 60
+        importance: 0.9
+      - skill_slug: "fastapi"
+        minimum_level: 55
+        importance: 0.8
+      - skill_slug: "postgresql"
+        minimum_level: 50
+        importance: 0.8
+      - skill_slug: "docker"
+        minimum_level: 40
+        importance: 0.6
+    riasec:
+      realistic: 0.6
+      investigative: 0.8
+      artistic: 0.2
+      social: 0.3
+      enterprising: 0.4
+      conventional: 0.7
+
+  - id: "018f0a02-0001-7000-8000-000000000002"
+    slug: "frontend-engineer"
+    title: "Frontend Engineer"
+    description: "Builds engaging, responsive, and accessible client-facing web applications."
+    required_skills:
+      - skill_slug: "react"
+        minimum_level: 65
+        importance: 0.95
+      - skill_slug: "typescript"
+        minimum_level: 60
+        importance: 0.85
+    riasec:
+      realistic: 0.4
+      investigative: 0.6
+      artistic: 0.7
+      social: 0.4
+      enterprising: 0.5
+      conventional: 0.5

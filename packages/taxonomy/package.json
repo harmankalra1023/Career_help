@@ -1,0 +1,7 @@
+{
+  "name": "@dct/taxonomy",
+  "version": "1.0.0",
+  "description": "Versioned skills and roles taxonomy for Digital Career Twin",
+  "private": true,
+  "main": "skills/sample_skills.yaml"
+}

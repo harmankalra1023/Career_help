@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RoleDefinition",
+  "type": "object",
+  "required": ["id", "slug", "title", "description", "required_skills"],
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "slug": { "type": "string" },
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "required_skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["skill_slug", "minimum_level", "importance"],
+        "properties": {
+          "skill_slug": { "type": "string" },
+          "minimum_level": { "type": "number", "minimum": 0, "maximum": 100 },
+          "importance": { "type": "number", "minimum": 0, "maximum": 1.0 }
+        }
+      }
+    },
+    "riasec": {
+      "type": "object",
+      "properties": {
+        "realistic": { "type": "number" },
+        "investigative": { "type": "number" },
+        "artistic": { "type": "number" },
+        "social": { "type": "number" },
+        "enterprising": { "type": "number" },
+        "conventional": { "type": "number" }
+      }
+    }
+  }
+}

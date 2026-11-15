@@ -1,0 +1,6 @@
+{
+  "name": "@dct/question-banks",
+  "version": "1.0.0",
+  "description": "Validated assessment items and questionnaires for Digital Career Twin",
+  "private": true
+}

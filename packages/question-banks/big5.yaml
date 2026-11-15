@@ -1,0 +1,55 @@
+version: "1.0.0"
+license: "Public Domain / IPIP"
+source: "International Personality Item Pool (IPIP 50-item Big Five)"
+locale: "en"
+scale:
+  min: 1
+  max: 5
+  labels:
+    1: "Very Inaccurate"
+    2: "Moderately Inaccurate"
+    3: "Neither Accurate Nor Inaccurate"
+    4: "Moderately Accurate"
+    5: "Very Accurate"
+
+items:
+  - id: "b5-01"
+    text: "Am the life of the party."
+    dimension: "extraversion"
+    reverse_scored: false
+  - id: "b5-02"
+    text: "Feel little concern for others."
+    dimension: "agreeableness"
+    reverse_scored: true
+  - id: "b5-03"
+    text: "Am always prepared."
+    dimension: "conscientiousness"
+    reverse_scored: false
+  - id: "b5-04"
+    text: "Get stressed out easily."
+    dimension: "neuroticism"
+    reverse_scored: false
+  - id: "b5-05"
+    text: "Have a rich vocabulary and love learning abstract concepts."
+    dimension: "openness"
+    reverse_scored: false
+  - id: "b5-06"
+    text: "Don't talk a lot."
+    dimension: "extraversion"
+    reverse_scored: true
+  - id: "b5-07"
+    text: "Am interested in people."
+    dimension: "agreeableness"
+    reverse_scored: false
+  - id: "b5-08"
+    text: "Leave my belongings around."
+    dimension: "conscientiousness"
+    reverse_scored: true
+  - id: "b5-09"
+    text: "Am relaxed most of the time."
+    dimension: "neuroticism"
+    reverse_scored: true
+  - id: "b5-10"
+    text: "Have difficulty understanding abstract ideas."
+    dimension: "openness"
+    reverse_scored: true

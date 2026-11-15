@@ -1,0 +1,49 @@
+version: "1.0.0"
+skills:
+  - id: "018f0a01-0001-7000-8000-000000000001"
+    slug: "python"
+    name: "Python"
+    category: "backend"
+    description: "General-purpose programming language commonly used for web backends, data engineering, and machine learning."
+    aliases: ["python3", "py", "cpython"]
+    prerequisites: []
+
+  - id: "018f0a01-0001-7000-8000-000000000002"
+    slug: "fastapi"
+    name: "FastAPI"
+    category: "backend"
+    description: "Modern, high-performance web framework for building APIs with Python 3.8+ based on standard Python type hints."
+    aliases: ["fast-api", "starlette-fastapi"]
+    prerequisites: ["python"]
+
+  - id: "018f0a01-0001-7000-8000-000000000003"
+    slug: "docker"
+    name: "Docker"
+    category: "cloud_devops"
+    description: "Containerization platform to build, package, and distribute software."
+    aliases: ["docker-compose", "containers", "containerization"]
+    prerequisites: []
+
+  - id: "018f0a01-0001-7000-8000-000000000004"
+    slug: "postgresql"
+    name: "PostgreSQL"
+    category: "backend"
+    description: "Powerful open-source object-relational database system."
+    aliases: ["postgres", "pgsql", "psql"]
+    prerequisites: []
+
+  - id: "018f0a01-0001-7000-8000-000000000005"
+    slug: "react"
+    name: "React"
+    category: "frontend"
+    description: "Declarative, component-based JavaScript library for building user interfaces."
+    aliases: ["reactjs", "react.js"]
+    prerequisites: []
+
+  - id: "018f0a01-0001-7000-8000-000000000006"
+    slug: "typescript"
+    name: "TypeScript"
+    category: "frontend"
+    description: "Strict syntactical superset of JavaScript adding static type definitions."
+    aliases: ["ts", "typescript-lang"]
+    prerequisites: []
